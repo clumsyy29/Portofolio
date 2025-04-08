@@ -115,6 +115,8 @@ main {
 .hero-subtitle p {
   letter-spacing: 0.2px;
   line-height: 1.4;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 .btn {
@@ -181,6 +183,11 @@ main {
 .description article {
   margin-bottom: 30px;
   letter-spacing: 0.7px;
+  text-align: justify;
+  text-justify: inter-word;
+  line-height: 1.6;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .about-photo {
@@ -345,6 +352,7 @@ button.theme-toggle {
   --fc-light: #202020;
 }
 
+/* Responsive */
 @media (width <= 600px) {
   nav {
     padding: 20px;
@@ -399,6 +407,11 @@ button.theme-toggle {
   .projects,
   .articles {
     padding: 75px 20px 0 20px;
+  }
+
+  .description article {
+    padding-left: 15px;
+    padding-right: 15px;
   }
 
   .project-content {
