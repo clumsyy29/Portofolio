@@ -1,16 +1,13 @@
+// ======== HAMBURGER MENU (MOBILE) ========
 const hamburger = document.querySelector(".hamburger");
 const navMenu = document.querySelector(".menu-list");
-const toggleBtn = document.querySelector(".theme-toggle");
-const themeIcon = toggleBtn.querySelector("i"); // Ambil <i> di dalam tombol
 
-// nav for mobile screen
-hamburger.addEventListener("click", mobileMenu);
-function mobileMenu() {
+hamburger.addEventListener("click", () => {
   hamburger.classList.toggle("active");
   navMenu.classList.toggle("active");
-}
+});
 
-// add border when scroll down
+// ======== ADD BORDER ON SCROLL ========
 window.onscroll = () => {
   const header = document.querySelector("header");
   const fixedNav = header.offsetTop;
@@ -22,33 +19,21 @@ window.onscroll = () => {
   }
 };
 
-// state
-const theme = localStorage.getItem("theme");
+// ======== DARK MODE TOGGLE ========
+const darkModeToggle = document.getElementById("darkModeToggle");
 
-// on mount
-if (theme) {
-  document.body.classList.add(theme);
-
-  // ganti ikon jika dark-mode aktif saat halaman dimuat
-  if (theme === "dark-mode") {
-    themeIcon.classList.remove("fa-regular", "fa-sun");
-    themeIcon.classList.add("fa-solid", "fa-moon");
-  }
+// Saat halaman dimuat, cek localStorage
+if (localStorage.getItem("theme") === "dark-mode") {
+  document.body.classList.add("dark-mode");
 }
 
-// dark theme
-const themeHandler = () => {
-  document.body.classList.toggle("dark-mode");
+// Toggle dark mode saat tombol diklik
+darkModeToggle.addEventListener("click", () => {
+  const isDark = document.body.classList.toggle("dark-mode");
 
-  if (document.body.classList.contains("dark-mode")) {
+  if (isDark) {
     localStorage.setItem("theme", "dark-mode");
-    themeIcon.classList.remove("fa-regular", "fa-sun");
-    themeIcon.classList.add("fa-solid", "fa-moon");
   } else {
     localStorage.removeItem("theme");
-    themeIcon.classList.remove("fa-solid", "fa-moon");
-    themeIcon.classList.add("fa-regular", "fa-sun");
   }
-};
-
-toggleBtn.addEventListener("click", themeHandler);
+});
