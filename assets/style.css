@@ -335,6 +335,7 @@ main {
   border-radius: 5px;
 }
 
+/* Old dark mode toggle button (jika masih ada, bisa dihapus jika tak dipakai lagi) */
 button.theme-toggle {
   border: none;
   padding: 5px;
@@ -347,9 +348,33 @@ button.theme-toggle {
   color: var(--fc-black);
 }
 
+/* === DARK MODE STYLES === */
 .dark-mode {
   --fc-black: #fcfcfc;
   --fc-light: #202020;
+}
+
+/* === DARK MODE ICON TOGGLE === */
+.dark-mode-toggle {
+  cursor: pointer;
+  font-size: 20px;
+  padding: 5px;
+}
+
+.dark-mode-toggle .light-icon {
+  display: block;
+}
+
+.dark-mode-toggle .dark-icon {
+  display: none;
+}
+
+.dark-mode .dark-mode-toggle .light-icon {
+  display: none;
+}
+
+.dark-mode .dark-mode-toggle .dark-icon {
+  display: block;
 }
 
 /* Responsive */
